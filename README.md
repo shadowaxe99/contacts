@@ -1,37 +1,33 @@
-# oneplace-contact
+# Contact Sorter
 
-[![Build Status](https://travis-ci.com/OnePlc/PLC_X_Contact.svg?branch=master)](https://travis-ci.com/OnePlc/PLC_X_Contact)
-[![Coverage Status](https://coveralls.io/repos/github/OnePlc/PLC_X_Contact/badge.svg?branch=master)](https://coveralls.io/github/OnePlc/PLC_X_Contact?branch=master)
-
-## Introduction
-
-This is the Contact Module for onePlace Software Framework based on Laminas Project (former Zend Framework)
-
-Create your web based apps on the fly! onePlace brings you extended Entity and Table Models,
-View Helpers and much more - so you can build your Webapp to manage database based data, 
-in almost any layout you can image. 
-
-onePlace is built for maximum freedom of choice for your app, and so only small
-parts of laminas mvc are utilized. a lot is done from scratch to give you more freedom / customization.
-
-## Contact Module
-
-This contact module is a starting point for your own onePlace modules.
-It expands on [oneplace-core](https://github.com/OnePlc/PLC_X_Core) and uses the onePlace / Laminas MVC layer and module systems.
+This project is a contact sorter that reads contacts from a CSV file, validates emails, formats phone numbers, and creates Contact objects. The contacts are then stored in an array for further processing. This application is built using Node.js and makes use of the csv-parser library for parsing CSV files.
 
 ## Installation
 
-The easiest way to install onePlace Contact is via composer
-```shell script
-composer require oneplace/oneplace-contact
-```
+1. Clone the repository: `git clone https://github.com/shadowaxe99/contacts.git`
+2. Navigate to the project directory: `cd contacts`
+3. Install the dependencies: `npm install`
 
-## Getting started
+## Usage
 
-how to utilize user manager
+Run the application: `node src/index.js`
 
-how to create own modules
+This will process the contacts in the `data/contacts.csv` file and output the results to the console.
 
-## Documentation
+## File Breakdown
 
-Documentation will be extended soon.
+- `src/Controller/ContactController.js`: Contains the logic for processing contacts from a CSV file. It reads the CSV file, validates and formats the contact data, and creates Contact objects.
+- `src/Model/Contact.js`: Defines the Contact class. Each Contact object represents a single contact and has properties for name, email, and phone number.
+- `src/Utils/ContactUtils.js`: Contains utility functions for validating emails and formatting phone numbers. These functions are used by the ContactController to process the contact data.
+- `src/index.js`: The entry point of the application. It calls the ContactController's processContacts method to start the contact processing.
+- `data/contacts.csv`: The CSV file containing the contacts to be processed. Each row represents a contact and should have columns for name, email, and phone number.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please adhere to the existing coding style and conventions.
+
+Please make sure to update tests as appropriate and ensure that all tests pass before submitting a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details.
